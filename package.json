@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --no-stdin --exec ts-node src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -15,7 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "@inquirer/prompts": "^7.3.3",
+    "dotenv": "^16.4.7",
+    "inversify": "^7.0.0-alpha.5",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",

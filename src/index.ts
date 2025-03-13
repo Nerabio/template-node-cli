@@ -1,8 +1,16 @@
 import { greet } from "./utils/greet";
 import dotenv from "dotenv";
+import { input, select, Separator } from "@inquirer/prompts";
+import { IocContainer } from "./services/ioc-container";
+import { App } from "./app";
 
-// Загружаем переменные окружения
 dotenv.config();
 
-const name = process.env.USER_NAME || "World";
-console.log(greet(name));
+async function bootstrap(): Promise<void> {
+  const ioc = new IocContainer();
+
+  const app = ioc.get<App>(App);
+  await app.run();
+}
+
+(async () => await bootstrap())();
